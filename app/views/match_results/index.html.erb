@@ -1,0 +1,24 @@
+<h1>Matches</h1>
+
+<%= link_to 'Record New Match', new_match_result_path %> |
+<%= link_to 'Players', players_path %> |
+<%= link_to 'Leaderboard', root_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>When</th>
+      <th>Winner</th>
+      <th>Loser</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @match_results.each do |m| %>
+      <tr>
+        <td><%= l(m.created_at, format: :short) rescue m.created_at %></td>
+        <td><%= m.winner.name %></td>
+        <td><%= m.loser.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,26 @@
+<h1>Players</h1>
+
+<%= link_to 'New Player', new_player_path %> |
+<%= link_to 'Record Match', new_match_result_path %> |
+<%= link_to 'Leaderboard', root_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @players.each do |player| %>
+      <tr>
+        <td><%= player.name %></td>
+        <td><%= player.wins_count %></td>
+        <td><%= player.losses_count %></td>
+        <td><%= button_to 'Remove', player_path(player), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

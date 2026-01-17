@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Project Summary:**
 
-Things you may want to cover:
+Build a basic web application to manage a badminton league, where users can:
+    - Add and manage players
+    - Record match results between players
+    - Track player rankings based on wins and losses
 
-* Ruby version
+**Core Requirements:**
 
-* System dependencies
+1. Player Management
+    - Ability to add and remove players
+    - View list of all players
+2. Match Tracking
+    - Record the result of a match (e.g., Player A vs Player B, who won)
+    - Each match must store the winner and loser
+3. Leaderboard / Stats
+    - Show the number of wins and losses per player
+    - Display a simple ranking based on most wins
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+**Notes:**
+1. This is not a design test.
+2. Front end Basic HTML/CSS is totally fine.
+3. Back end is ROR.
+4. Use standard coding conventions.
+5. Focus on clean, readable code and a sensible data model.

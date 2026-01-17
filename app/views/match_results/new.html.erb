@@ -1,0 +1,19 @@
+<h1>Record Match</h1>
+
+<%= form_with model: @match_result, local: true do |f| %>
+  <div>
+    <%= f.label :winner_id, 'Winner' %><br>
+    <%= f.collection_select :winner_id, @players, :id, :name, prompt: 'Select winner' %>
+  </div>
+
+  <div>
+    <%= f.label :loser_id, 'Loser' %><br>
+    <%= f.collection_select :loser_id, @players, :id, :name, prompt: 'Select loser' %>
+  </div>
+
+  <div>
+    <%= f.submit 'Record' %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', match_results_path %>

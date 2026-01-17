@@ -1,0 +1,27 @@
+<h1>Leaderboard</h1>
+
+<%= link_to 'Players', players_path %> |
+<%= link_to 'Record Match', new_match_result_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Win %</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @players.each_with_index do |p, idx| %>
+      <tr>
+        <td><%= idx + 1 %></td>
+        <td><%= p.name %></td>
+        <td><%= p.wins_count %></td>
+        <td><%= p.losses_count %></td>
+        <td><%= p.win_percentage %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

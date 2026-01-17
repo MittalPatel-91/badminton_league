@@ -8,3 +8,28 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+/* Flash message styles */
+.flash-container {
+	position: fixed;
+	top: 1rem;
+	right: 1rem;
+	z-index: 9999;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	max-width: 320px;
+}
+
+.flash {
+	padding: 0.75rem 1rem;
+	border-radius: 6px;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+	color: #111827;
+	background: #f3f4f6;
+	transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.flash.notice { background: #d1fae5; color: #065f46 }
+.flash.alert { background: #fee2e2; color: #7f1d1d }
+.flash-hidden { opacity: 0; transform: translateY(-6px); }
