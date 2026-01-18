@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
 class LeaderboardsController < ApplicationController
   def index
-    @players = Player.all.to_a
-    @players.sort_by! { |p| -p.wins_count }
+    # Order players first by wins_count desc, secondary by total matches asc
+    @players = Player.order(wins_count: :desc)
+                     .order(Arel.sql("(wins_count + losses_count) ASC"))
+                     .to_a
   end
 end

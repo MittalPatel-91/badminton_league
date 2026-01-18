@@ -1,5 +1,4 @@
 <h1>New Player</h1>
-
 <%= form_with model: @player, local: true do |f| %>
   <div>
     <%= f.label :name %><br>
@@ -7,8 +6,8 @@
   </div>
 
   <div>
-    <%= f.submit 'Create' %>
+    <%= f.submit t('players.new.create') %>
   </div>
 <% end %>
 
-<%= link_to 'Back', players_path %>
+<%= link_to t('players.new.back'), players_path %>

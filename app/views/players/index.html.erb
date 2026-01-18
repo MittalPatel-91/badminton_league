@@ -1,15 +1,15 @@
-<h1>Players</h1>
+<h1><%= t('players.index.title') %></h1>
 
-<%= link_to 'New Player', new_player_path %> |
-<%= link_to 'Record Match', new_match_result_path %> |
-<%= link_to 'Leaderboard', root_path %>
+<%= link_to t('players.index.new_player'), new_player_path %> |
+<%= link_to t('players.index.record_match'), new_match_result_path %> |
+<%= link_to t('players.index.leaderboard'), root_path %>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Wins</th>
-      <th>Losses</th>
+      <th><%= t('players.index.name') %></th>
+      <th><%= t('players.index.wins') %></th>
+      <th><%= t('players.index.losses') %></th>
       <th></th>
     </tr>
   </thead>
@@ -19,7 +19,7 @@
         <td><%= player.name %></td>
         <td><%= player.wins_count %></td>
         <td><%= player.losses_count %></td>
-        <td><%= button_to 'Remove', player_path(player), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to t('players.index.remove'), player_path(player), method: :delete, data: { turbo_confirm: t('players.index.confirmation') } %></td>
       </tr>
     <% end %>
   </tbody>

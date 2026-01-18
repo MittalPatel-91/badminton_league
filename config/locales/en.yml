@@ -29,3 +29,57 @@
 
 en:
   hello: "Hello world"
+
+  players:
+    created:
+      successfully: "Player created successfully."
+    destroyed:
+      successfully: "%{name} removed successfully."
+      failure: "Unable to remove player."
+      restricted: "Cannot remove player with recorded matches."
+    index:
+      title: "Players"
+      new_player: "New Player"
+      record_match: "Record Match"
+      leaderboard: "Leaderboard"
+      name: "Name"
+      wins: "Wins"
+      losses: "Losses"
+      remove: "Remove"
+      confirmation: "Are you sure you want to remove this player?"
+    new:
+      title: "New Player"
+      create: "Create"
+      back: "Back"
+  match_results:
+    created:
+      successfully: "Match recorded successfully."
+    errors:
+      winner_and_loser_same: "must be different from winner"
+    index:
+      title: "Matches"
+      record_new: "Record New Match"
+      players: "Players"
+      leaderboard: "Leaderboard"
+      played_on: "Played On"
+      winner: "Winner"
+      loser: "Loser"
+    new:
+      title: "Record Match"
+      winner: "Winner"
+      loser: "Loser"
+      submit: "Record"
+      prompt_winner: "Select winner"
+      prompt_loser: "Select loser"
+      back: "Back"
+  leaderboards:
+    index:
+      title: "Leaderboard"
+      players: "Players"
+      record_match: "Record Match"
+      rank: "Rank"
+      name: "Name"
+      wins: "Wins"
+      losses: "Losses"
+      win_percentage: "Win %"
+    

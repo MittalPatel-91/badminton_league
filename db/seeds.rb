@@ -11,16 +11,22 @@
 # Sample seed data for badminton league
 player_names = [ "Alice", "Bob", "Carol", "Dave" ]
 players = player_names.map { |n| Player.find_or_create_by!(name: n) }
+puts "Players created: #{players.map(&:name).join(', ')}"
 
 # Create some sample matches
 MatchResult.find_or_create_by!(winner: players[0], loser: players[1])
+puts "Match result: winner #{players[0].name} loser #{players[1].name}"
 MatchResult.find_or_create_by!(winner: players[2], loser: players[3])
+puts "Match result: winner #{players[2].name} loser #{players[3].name}"
 MatchResult.find_or_create_by!(winner: players[0], loser: players[2])
+puts "Match result: winner #{players[0].name} loser #{players[2].name}"
 MatchResult.find_or_create_by!(winner: players[1], loser: players[3])
+puts "Match result: winner #{players[1].name} loser #{players[3].name}"
 
 # Ensure cached counters match seeded match results
 Player.find_each do |p|
   wins = MatchResult.where(winner_id: p.id).count
   losses = MatchResult.where(loser_id: p.id).count
   p.update!(wins_count: wins, losses_count: losses)
+  puts "Player #{p.name} - Wins: #{wins}, Losses: #{losses}"
 end

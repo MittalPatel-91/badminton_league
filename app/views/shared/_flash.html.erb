@@ -1,11 +1,6 @@
 <div data-controller="flash" class="flash-container">
   <% flash.each do |type, message| %>
-    <% css_class = case type.to_s %>
-      <% when 'notice' then 'flash notice' %>
-      <% when 'alert' then 'flash alert' %>
-      <% else 'flash' %>
-    <% end %>
-    <div data-flash-target="message" class="<%= css_class %>" role="status" aria-live="polite">
+    <div data-flash-target="message" class="<%= flash_css_class(type) %>" role="status" aria-live="polite">
       <%= message %>
     </div>
   <% end %>

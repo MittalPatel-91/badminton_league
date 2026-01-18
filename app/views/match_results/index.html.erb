@@ -1,23 +1,23 @@
-<h1>Matches</h1>
+<h1><%= t('match_results.index.title') %></h1>
 
-<%= link_to 'Record New Match', new_match_result_path %> |
-<%= link_to 'Players', players_path %> |
-<%= link_to 'Leaderboard', root_path %>
+<%= link_to t('match_results.index.record_new'), new_match_result_path %> |
+<%= link_to t('match_results.index.players'), players_path %> |
+<%= link_to t('match_results.index.leaderboard'), root_path %>
 
 <table>
   <thead>
     <tr>
-      <th>When</th>
-      <th>Winner</th>
-      <th>Loser</th>
+      <th><%= t('match_results.index.played_on') %></th>
+      <th><%= t('match_results.index.winner') %></th>
+      <th><%= t('match_results.index.loser') %></th>
     </tr>
   </thead>
   <tbody>
-    <% @match_results.each do |m| %>
+    <% @match_results.each do |match| %>
       <tr>
-        <td><%= l(m.created_at, format: :short) rescue m.created_at %></td>
-        <td><%= m.winner.name %></td>
-        <td><%= m.loser.name %></td>
+        <td><%= match.created_at ? match.created_at.strftime("%d-%m-%Y %H:%M %p") : '' %></td>
+        <td><%= match.winner.name %></td>
+        <td><%= match.loser.name %></td>
       </tr>
     <% end %>
   </tbody>

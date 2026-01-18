@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 class MatchResultsController < ApplicationController
   def index
-    @match_results = MatchResult.includes(:winner, :loser).order(created_at: :desc)
+    @match_results = MatchResult.includes(:winner, :loser)
+                                .order(created_at: :desc)
   end
 
   def new
@@ -11,7 +14,7 @@ class MatchResultsController < ApplicationController
   def create
     @match_result = MatchResult.new(match_result_params)
     if @match_result.save
-      redirect_to match_results_path, notice: "Match recorded successfully."
+      redirect_to match_results_path, notice: I18n.t("match_results.created.successfully")
     else
       @players = Player.order(:name)
       flash.now[:alert] = @match_result.errors.full_messages.to_sentence
