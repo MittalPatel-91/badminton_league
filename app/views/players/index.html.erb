@@ -1,0 +1,26 @@
+<h1><%= t('players.index.title') %></h1>
+
+<%= link_to t('players.index.new_player'), new_player_path %> |
+<%= link_to t('players.index.record_match'), new_match_result_path %> |
+<%= link_to t('players.index.leaderboard'), root_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t('players.index.name') %></th>
+      <th><%= t('players.index.wins') %></th>
+      <th><%= t('players.index.losses') %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @players.each do |player| %>
+      <tr>
+        <td><%= player.name %></td>
+        <td><%= player.wins_count %></td>
+        <td><%= player.losses_count %></td>
+        <td><%= button_to t('players.index.remove'), player_path(player), method: :delete, data: { turbo_confirm: t('players.index.confirmation') } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

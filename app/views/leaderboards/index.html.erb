@@ -1,0 +1,27 @@
+<h1><%= t('leaderboards.index.title') %></h1>
+
+<%= link_to t('leaderboards.index.players'), players_path %> |
+<%= link_to t('leaderboards.index.record_match'), new_match_result_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t('leaderboards.index.rank') %></th>
+      <th><%= t('leaderboards.index.name') %></th>
+      <th><%= t('leaderboards.index.wins') %></th>
+      <th><%= t('leaderboards.index.losses') %></th>
+      <th><%= t('leaderboards.index.win_percentage') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @players.each_with_index do |player, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= player.name %></td>
+        <td><%= player.wins_count %></td>
+        <td><%= player.losses_count %></td>
+        <td><%= player.win_percentage %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

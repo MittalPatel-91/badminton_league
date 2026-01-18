@@ -1,0 +1,7 @@
+<div data-controller="flash" class="flash-container">
+  <% flash.each do |type, message| %>
+    <div data-flash-target="message" class="<%= flash_css_class(type) %>" role="status" aria-live="polite">
+      <%= message %>
+    </div>
+  <% end %>
+</div>

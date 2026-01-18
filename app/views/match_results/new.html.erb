@@ -1,0 +1,19 @@
+<h1><%= t('match_results.new.title') %></h1>
+
+<%= form_with model: @match_result, local: true do |f| %>
+  <div>
+    <%= f.label :winner_id, t('match_results.new.winner') %><br>
+    <%= f.collection_select :winner_id, @players, :id, :name, prompt: t('match_results.new.prompt_winner') %>
+  </div>
+
+  <div>
+    <%= f.label :loser_id, t('match_results.new.loser') %><br>
+    <%= f.collection_select :loser_id, @players, :id, :name, prompt: t('match_results.new.prompt_loser') %>
+  </div>
+
+  <div>
+    <%= f.submit t('match_results.new.submit') %>
+  </div>
+<% end %>
+
+<%= link_to t('match_results.new.back'), match_results_path %>
